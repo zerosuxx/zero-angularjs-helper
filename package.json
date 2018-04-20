@@ -1,8 +1,8 @@
 {
     "name": "zero-angularjs-helper",
     "version": "1.0.0",
-    "description": "AngularJS App Module",
-    "main": "dist/angular-app.js",
+    "description": "AngularJS Helper Module",
+    "main": "dist/zero-angularjs-helper.js",
     "repository": {
         "type": "git",
         "url": "http://github.com/zerosuxx/angular-app"
