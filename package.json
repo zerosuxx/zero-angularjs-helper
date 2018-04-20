@@ -1,0 +1,53 @@
+{
+    "name": "angular-app",
+    "version": "1.0.0",
+    "description": "AngularJS App Module",
+    "main": "dist/angular-app.js",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/zerosuxx/angular-app"
+    },
+    "keywords": [
+        "angular-app",
+        "angular",
+        "AngularJS",
+        "module"
+    ],
+    "engines": {
+        "node": "*"
+    },
+    "devEngines": {
+        "node": "*",
+        "npm": "*"
+    },
+    "scripts": {
+        "build": "grunt build"
+    },
+    "author": {
+        "name": "Mohos 'Zerosuxx' Tamás"
+    },
+    "contributors": [
+        {
+            "name": "Mohos Tamás",
+            "url": "https://github.com/zerosuxx/"
+        }
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "angular": ">=1.2.26 <=1.6"
+    },
+    "devDependencies": {
+        "grunt": "~1.0.1",
+        "grunt-bump": "^0.8.0",
+        "grunt-cli": "^1.2.0",
+        "grunt-contrib-clean": "^1.0.0",
+        "grunt-contrib-concat": "^1.0.0",
+        "grunt-contrib-jshint": "^1.0.0",
+        "grunt-contrib-uglify": "^3.0.1",
+        "grunt-file-append": "0.0.7",
+        "grunt-parallel": "^0.5.1",
+        "grunt-umd": "^2.3.3",
+        "grunt-version": "^1.0.0",
+        "load-grunt-tasks": "^3.4.1"
+    }
+}
