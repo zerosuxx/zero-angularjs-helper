@@ -1,5 +1,5 @@
 {
-    "name": "angular-app",
+    "name": "zero-angularjs-helper",
     "version": "1.0.0",
     "description": "AngularJS App Module",
     "main": "dist/angular-app.js",
@@ -8,10 +8,10 @@
         "url": "http://github.com/zerosuxx/angular-app"
     },
     "keywords": [
-        "angular-app",
         "angular",
         "AngularJS",
-        "module"
+        "module",
+        "helper"
     ],
     "engines": {
         "node": "*"

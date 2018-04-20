@@ -1,1 +1,1 @@
-# angular-app
+# zero-angularjs-helper

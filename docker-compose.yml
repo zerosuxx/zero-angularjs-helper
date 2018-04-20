@@ -1,0 +1,8 @@
+version: '2'
+services:
+  node:
+    image: node:latest
+    working_dir: /home/node
+    volumes:
+      - ./:/home/node
+    command: bash -c "[ -d 'node_modules' ] || npm i && npm run build"
