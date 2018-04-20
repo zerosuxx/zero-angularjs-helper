@@ -1,4 +1,4 @@
-angular.module('zerosuxx.ngApp') 
+angular.module('zerosuxx.zeroNgHelper') 
 .directive('ngSubmit', ['HttpClient', function(HttpClient) {
     return {
         restrict: 'A',

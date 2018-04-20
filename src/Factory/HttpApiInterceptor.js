@@ -1,4 +1,4 @@
-angular.module('zerosuxx.ngApp') 
+angular.module('zerosuxx.zeroNgHelper') 
 .factory('HttpApiInterceptor', ['$location', '$q', 'StorageService', function HttpApiInterceptor($location, $q, StorageService) {
     return {
         responseError: function(response) {

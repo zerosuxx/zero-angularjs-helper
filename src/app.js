@@ -1,1 +1,1 @@
-angular.module('zerosuxx.ngApp', []);
+angular.module('zerosuxx.zeroNgHelper', []);

@@ -5,7 +5,7 @@
     "main": "dist/zero-angularjs-helper.js",
     "repository": {
         "type": "git",
-        "url": "http://github.com/zerosuxx/angular-app"
+        "url": "http://github.com/zerosuxx/zero-angularjs-helper"
     },
     "keywords": [
         "angular",
@@ -24,12 +24,12 @@
         "build": "grunt build"
     },
     "author": {
-        "name": "Mohos 'Zerosuxx' Tamás"
+        "name": "Mohos 'ZerosuxX' Tamás"
     },
     "contributors": [
         {
             "name": "Mohos Tamás",
-            "url": "https://github.com/zerosuxx/"
+            "url": "https://github.com/zerosuxx"
         }
     ],
     "license": "MIT",

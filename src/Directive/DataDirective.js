@@ -1,4 +1,4 @@
-angular.module('zerosuxx.ngApp') 
+angular.module('zerosuxx.zeroNgHelper') 
 .directive('data', ['$rootScope', 'HttpClient', function($rootScope, HttpClient) {
     return {
         restrict: 'A',
@@ -6,7 +6,6 @@ angular.module('zerosuxx.ngApp')
             scope.load = function(url, scopeAlias, queryParams) {
                 HttpClient.get(url, {params: queryParams}).then(function(response) {
                     scope[scopeAlias ? scopeAlias : 'data'] = response.data;
-                    //$rootScope.$broadcast('DataDirective', {url: url, params: queryParams, data: data});
                 });
             };
             scope.reload = function() {

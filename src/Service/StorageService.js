@@ -1,4 +1,4 @@
-angular.module('zerosuxx.ngApp')
+angular.module('zerosuxx.zeroNgHelper')
 .service('StorageService', function StorageService() {
     this.storage = localStorage;
 

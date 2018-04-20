@@ -59,7 +59,7 @@ module.exports = function(grunt) {
             },
             core: {
                 src: ['<%= lib_files.core %>'],
-                dest: '<%= build_dir %>/angular-app.js'
+                dest: '<%= build_dir %>/zero-angularjs-helper.js'
             }
         },
         uglify: {
@@ -70,7 +70,7 @@ module.exports = function(grunt) {
             },
             core: {
                 files: {
-                    '<%= build_dir %>/angular-app.min.js': '<%= concat.core.dest %>'
+                    '<%= build_dir %>/zero-angularjs-helper.min.js': '<%= concat.core.dest %>'
                 }
             }
         },
@@ -83,7 +83,7 @@ module.exports = function(grunt) {
         file_append: {
             'core': {
                 files: [{
-                    append: "return 'zerosuxx.ngApp';",
+                    append: "return 'zerosuxx.zeroNgHelper';",
                     input: '<%= concat.core.dest %>'
                 }]
             }

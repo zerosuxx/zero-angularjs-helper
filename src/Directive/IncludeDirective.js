@@ -1,4 +1,4 @@
-angular.module('zerosuxx.ngApp') 
+angular.module('zerosuxx.zeroNgHelper') 
 .directive('include', ['$templateUrl', function($templateUrl) {
     var includesCount = {};
     var maxIncludesCount = 100;

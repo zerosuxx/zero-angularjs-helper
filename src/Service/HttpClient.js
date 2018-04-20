@@ -1,4 +1,4 @@
-angular.module('zerosuxx.ngApp')
+angular.module('zerosuxx.zeroNgHelper')
 .service('HttpClient', ['$http', function HttpClient($http) {
     angular.extend(this, $http);
 

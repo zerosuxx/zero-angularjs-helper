@@ -1,4 +1,4 @@
-angular.module('zerosuxx.ngApp') 
+angular.module('zerosuxx.zeroNgHelper') 
 .service('Auth', ['HttpClient', 'StorageService', function Auth(HttpClient, StorageService) {
     this.init = function() {
         var auth = StorageService.getUnSerialized('Auth');

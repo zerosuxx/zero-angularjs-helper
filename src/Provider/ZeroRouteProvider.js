@@ -1,4 +1,4 @@
-angular.module('zerosuxx.ngApp') 
+angular.module('zerosuxx.zeroNgHelper') 
 .provider('$zeroRoute', ['$routeProvider', function $zeroRouteProvider($routeProvider) {
     angular.extend(this, $routeProvider);
 

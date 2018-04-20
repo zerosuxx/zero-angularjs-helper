@@ -1,4 +1,4 @@
-angular.module('zerosuxx.ngApp') 
+angular.module('zerosuxx.zeroNgHelper') 
 .directive('list', ['HttpClient', function(HttpClient) {
     var generatePages = function(count) {
         var pages = [];

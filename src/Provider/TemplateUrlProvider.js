@@ -1,4 +1,4 @@
-angular.module('zerosuxx.ngApp') 
+angular.module('zerosuxx.zeroNgHelper') 
 .provider('$templateUrl', function $templateUrlProvider() {
     this.templateDir = 'templates';
     this.suffix = '';
