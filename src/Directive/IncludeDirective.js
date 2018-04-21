@@ -1,8 +1,5 @@
 angular.module('zerosuxx.zeroNgHelper') 
 .directive('include', ['$templateUrl', function($templateUrl) {
-    var includesCount = {};
-    var maxIncludesCount = 100;
-
     var generateId = function(type, src) {
         return type + '_' + src.replace(/-/g, '');
     };
@@ -21,14 +18,6 @@ angular.module('zerosuxx.zeroNgHelper')
         },
         template: function(element, attrs) {
             var onloadAttr = attrs.onload ? ' onload="'+attrs.onload+'"' : '';
-            var id = generateId(attrs.include, attrs.src);
-            if(includesCount[id] === undefined) {
-                includesCount[id] = 0;
-            }
-            includesCount[id]++;
-            if(maxIncludesCount <= includesCount[id]) {
-                throw new Error('Max includes count increased: ' + id);
-            }
             return '<div ng-include="' + generateId(attrs.include, attrs.src) + '"'+onloadAttr+'></div>';
         }
     };

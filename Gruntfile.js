@@ -14,6 +14,9 @@ module.exports = function(grunt) {
     function findFiles(dir, files) {
         fs.readdirSync(dir).forEach(function(file) {
             var path = dir + '/' + file;
+            if(files.indexOf(path) !== -1) {
+                return;
+            } 
             if( fs.lstatSync(path).isDirectory() ) {
                 findFiles(path, files);
             } else {
@@ -21,8 +24,22 @@ module.exports = function(grunt) {
             }
         });
     }
-    var files = [];
-    findFiles(config.src_dir, files);
+    var files = [
+        config.src_dir + '/app.js',
+        config.src_dir + '/Directive/DataDirective.js',
+        config.src_dir + '/Directive/IncludeDirective.js',
+        config.src_dir + '/Directive/ListDirective.js',
+        config.src_dir + '/Directive/SubmitHandlerDirective.js',
+        config.src_dir + '/Factory/DisableReloadCurrentTemplate.js',
+        config.src_dir + '/Factory/HttpApiInterceptor.js',
+        config.src_dir + '/Provider/TemplateUrlProvider.js',
+        config.src_dir + '/Provider/ZeroRouteProvider.js',
+        config.src_dir + '/Provider/ZeroConfigProvider.js',
+        config.src_dir + '/Service/Auth.js',
+        config.src_dir + '/Service/EventDispatcher.js',
+        config.src_dir + '/Service/HttpClient.js',
+        config.src_dir + '/Service/StorageService.js',
+    ];
 	
     grunt.initConfig({
         pkg: pkg,

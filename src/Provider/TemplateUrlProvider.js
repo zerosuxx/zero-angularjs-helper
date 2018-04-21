@@ -3,6 +3,10 @@ angular.module('zerosuxx.zeroNgHelper')
     this.templateDir = 'templates';
     this.suffix = '';
 
+    this.$get = function() {
+        return this;
+    };
+
     this.setTemplateDir = function(dir) {
         this.templateDir = dir;
     };
@@ -33,9 +37,5 @@ angular.module('zerosuxx.zeroNgHelper')
 
     this.getElement = function(templateName, ext) {
         return this.get(['_elements', templateName, ext]);
-    };
-
-    this.$get = function() {
-        return this;
     };
 });

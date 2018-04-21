@@ -1,16 +1,29 @@
 angular.module('zerosuxx.zeroNgHelper') 
-.provider('$zeroRoute', ['$routeProvider', function $zeroRouteProvider($routeProvider) {
-    angular.extend(this, $routeProvider);
-
+.provider('$zeroRoute', function $zeroRouteProvider() {
     this.templateUrlResolver = null;
+    this.routeProvider = null;
+
+    this.$get = function() {
+        return this;
+    };
 
     this.setTemplateUrlResolver = function(resolver) {
         this.templateUrlResolver = resolver;
+        return this;
+    };
+    
+    this.setRouteProvider = function(routeProvider) {
+        this.routeProvider = routeProvider;
+        angular.extend(this, routeProvider);
+        return this;
     };
 
     this.connect = function(route, template, controller, extendedConfig) {
         if(!this.templateUrlResolver) {
             throw new Error('TemplateResolver not found!');
+        }
+        if(!this.routeProvider) {
+            throw new Error('RouteProvider not found!');
         }
         var config = {};
         if(extendedConfig === undefined) {
@@ -30,4 +43,4 @@ angular.module('zerosuxx.zeroNgHelper')
         }
         return this.when(route, config);
     };
-}]);
+});
