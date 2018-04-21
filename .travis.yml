@@ -8,4 +8,14 @@ script:
 after_success:
     - npm install ci-publish
     - $(npm bin)/ci-publish || true
-
+deploy:
+  provider: releases
+  api_key:
+    secure: DNgBsSIUPZRxrv0oHxBs7o0uqsq4GM/PoUYw4DDOJa8Mo1nWVHRNpiaDpYUrubKDWWYNu9s8hx87Ed2rSugPLU0WgeyJwy2GQ8gqX9iCad7nxnaJfhjWrLKX46hHUsmOap8GKYmjhhSz9Dsxu6bO9Newds0rJ4oxvjhiyd5/tuPaEXHOBsg3gSpvai4JnoGFuy0bihH3a+WNRmPncQ5jCLI/0Sj8jWElq3HBQFkJ8u3SQm9GC/h/cm4fZ7hkT0x2LZsHj82arWLp/V9IUqV/TLsheVzXl/NUcNQCHJptUrCSQM+KgUS6ATDzmKofx4t3OUELTsXnq53r46PZkGWopQQspqK/P2/7mBsx1/+2OMowvCKrmIERqfel1lEK09VKJqrnE4XpVoMOb+sh7PgLqgQD9U01JER3rr2rlxGA7zPnAeh9phlmJceM5hKdg96TapJeGU4/gA+q8/QvXzsF6hfnkmYHQ4d0ts2/UYRpYL0DB1/ZVBnPogCDTqlSHtsBhfPFFjJxsScEMXm0PqfeyaTa3eXedEwDlsUimmI3h7ZafU/lGmj1v5BAYaa8UEVy5k+e0zBUQcxDMW5u2fR8OyC4du14Am4dZunRnj27PjoLdLIsBC/C/mdfx1XSYFr+aV7eJxcH26O8mHnBTIo9wC5JaNPcN1PsKBtEBEGSHJ4=
+  file:
+    - "dist/zero-angularjs-helper.js"
+    - "dist/zero-angularjs-helper.min.js"
+  skip_cleanup: true
+  on:
+    repo: zerosuxx/zero-angularjs-helper
+    tags: true
