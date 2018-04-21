@@ -1,16 +1,31 @@
 // jshint camelcase: false, quotmark: false
-
-var fs = require('fs');
+var config = {
+    'src_dir': 'src',
+    'build_dir': 'dist'
+};
+var files = [
+    config.src_dir + '/app.js',
+    config.src_dir + '/Directive/DataDirective.js',
+    config.src_dir + '/Directive/IncludeDirective.js',
+    config.src_dir + '/Directive/ListDirective.js',
+    config.src_dir + '/Directive/SubmitHandlerDirective.js',
+    config.src_dir + '/Factory/DisableReloadCurrentTemplate.js',
+    config.src_dir + '/Factory/HttpApiInterceptor.js',
+    config.src_dir + '/Provider/TemplateUrlProvider.js',
+    config.src_dir + '/Provider/ZeroRouteProvider.js',
+    config.src_dir + '/Provider/ZeroConfigProvider.js',
+    config.src_dir + '/Service/Auth.js',
+    config.src_dir + '/Service/EventDispatcher.js',
+    config.src_dir + '/Service/HttpClient.js',
+    config.src_dir + '/Service/StorageService.js',
+];
 module.exports = function(grunt) {
     'use strict';
-
     require('load-grunt-tasks')(grunt);
+    
+    var fs = require('fs');
     var pkg = grunt.file.readJSON('package.json');
-
-    var config = {
-        'src_dir': 'src'
-    };
-
+    
     function findFiles(dir, files) {
         fs.readdirSync(dir).forEach(function(file) {
             var path = dir + '/' + file;
@@ -24,23 +39,7 @@ module.exports = function(grunt) {
             }
         });
     }
-    var files = [
-        config.src_dir + '/app.js',
-        config.src_dir + '/Directive/DataDirective.js',
-        config.src_dir + '/Directive/IncludeDirective.js',
-        config.src_dir + '/Directive/ListDirective.js',
-        config.src_dir + '/Directive/SubmitHandlerDirective.js',
-        config.src_dir + '/Factory/DisableReloadCurrentTemplate.js',
-        config.src_dir + '/Factory/HttpApiInterceptor.js',
-        config.src_dir + '/Provider/TemplateUrlProvider.js',
-        config.src_dir + '/Provider/ZeroRouteProvider.js',
-        config.src_dir + '/Provider/ZeroConfigProvider.js',
-        config.src_dir + '/Service/Auth.js',
-        config.src_dir + '/Service/EventDispatcher.js',
-        config.src_dir + '/Service/HttpClient.js',
-        config.src_dir + '/Service/StorageService.js',
-    ];
-	
+
     grunt.initConfig({
         pkg: pkg,
         language: grunt.option('lang') || 'en',
@@ -51,7 +50,7 @@ module.exports = function(grunt) {
                     ' * Copyright (c) <%= grunt.template.today("yyyy") %> - <%= pkg.author.name %>;' +
                     ' Licensed <%= pkg.license %>\n */\n'
         },
-        build_dir: 'dist',
+        build_dir: config.build_dir,
         lib_files: {
             core: files
         },
@@ -92,13 +91,13 @@ module.exports = function(grunt) {
             }
         },
         umd: {
-            'core': {
+            core: {
                 src: '<%= concat.core.dest %>',
                 dest: '<%= concat.core.dest %>'
             }
         },
         file_append: {
-            'core': {
+            core: {
                 files: [{
                     append: "return 'zerosuxx.zeroNgHelper';",
                     input: '<%= concat.core.dest %>'

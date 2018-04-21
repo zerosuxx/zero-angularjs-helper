@@ -1,3 +1,5 @@
 /src/
+.travis.yml
+test.html
 Gruntfile.js
 docker-compose.yml
