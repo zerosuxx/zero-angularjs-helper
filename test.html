@@ -9,26 +9,25 @@
         <script src="node_modules/angular/angular.js"></script>
         <script>
             var module = {};
-            var files = [];
         </script>
         <script src="Gruntfile.js"></script>
         <script>
-            (function() {
+             function loadScripts(files, afterLoad) {
                 var loadedCount = 0;
                 for(var i in files) {
                     var script = document.createElement('script');
                     script.src = files[i];
                     script.async = true;
                     script.onload = function(e) {
+                        loadedCount++;
                         if(loadedCount === files.length) {
-                            init();
+                            afterLoad();
                         }
+                        
                     };
                     document.body.appendChild(script);
                 }
-            })();
-        </script>
-        <script>
+            }
             function init() {
                 var app = angular.module('app', ['zerosuxx.zeroNgHelper']);
                 app.config(['$zeroConfigProvider', function($zeroConfigProvider) {
@@ -41,6 +40,7 @@
                 
                 angular.bootstrap(document, ['app']);
             }
+            loadScripts(files, init);
         </script>
     </body>
 </html>
