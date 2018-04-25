@@ -1,14 +1,15 @@
 angular.module('zerosuxx.zeroNgHelper') 
-.factory('HttpApiInterceptor', ['$location', '$q', 'StorageService', function HttpApiInterceptor($location, $q, StorageService) {
+.factory('HttpApiInterceptor', ['$location', '$q', '$zeroConfig', 'StorageService', function HttpApiInterceptor($location, $q, $zeroConfig, StorageService) {
+    var config = $zeroConfig.config.httpApiInterceptors;
     return {
         responseError: function(response) {
             if(response.status === 401) {
-                StorageService.set('loginRedirect', $location.path());
-                $location.path('/login');
+                if(config.unauthorized.savePreviousLocationKey) {
+                    StorageService.set(config.unauthorized.savePreviousLocationKey, $location.path());
+                }
+                $location.path(config.locations.unauthorized);
             } else if(response.status === 404) {
-                $location.path('/404');
-            } else if(response.status === 301 || response.status === 302) {
-
+                $location.path(config.locations.notFound);
             }
             return $q.reject(response);
         }

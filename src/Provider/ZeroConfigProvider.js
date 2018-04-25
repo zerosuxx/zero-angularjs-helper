@@ -27,6 +27,15 @@ function $zeroConfigProvider($templateUrlProvider, $locationProvider, $logProvid
         },
         http: {
             interceptors: []
+        },
+        httpApiInterceptors: {
+            locations: {
+                unauthorized: '/login',
+                notFound: '/404'
+            },
+            unauthorized: {
+                savePreviousLocationKey: 'loginRedirect'
+            }
         }
     };
     this.config = this.defaults;
