@@ -5,6 +5,8 @@ angular.module('zerosuxx.zeroNgHelper')
             if(response.status === 401) {
                 StorageService.set('loginRedirect', $location.path());
                 $location.path('/login');
+            } else if(response.status === 404) {
+                $location.path('/404');
             } else if(response.status === 301 || response.status === 302) {
 
             }

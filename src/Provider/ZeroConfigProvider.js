@@ -103,6 +103,7 @@ function $zeroConfigProvider($templateUrlProvider, $locationProvider, $logProvid
                     configStaticFiles.suffix += '?v=' + this.config.app.version;
                 }
                 this.translateProvider.useStaticFilesLoader(configStaticFiles);
+                //this.translateProvider.useSanitizeValueStrategy('escape');
             }
         }
         return this;
