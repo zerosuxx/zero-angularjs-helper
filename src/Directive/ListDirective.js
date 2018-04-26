@@ -34,11 +34,9 @@ angular.module('zerosuxx.zeroNgHelper')
             };
 
             scope.initPages = function(pagesCount, reset) {
-                if(!scope.pages) {
-                    scope.allPages = generatePages(pagesCount);
-                    scope.lastPage = parseInt(pagesCount);
-                    scope.slicePages(scope.currentPage, maxPage);
-                }
+                scope.allPages = generatePages(pagesCount);
+                scope.lastPage = parseInt(pagesCount);
+                scope.slicePages(scope.currentPage, maxPage);
                 if(reset) {
                     scope.resetPager();
                 }
