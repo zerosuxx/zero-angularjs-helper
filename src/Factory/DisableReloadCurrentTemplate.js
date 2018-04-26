@@ -3,7 +3,7 @@ angular.module('zerosuxx.zeroNgHelper')
     return function(scope) {
         var lastRoute = $route.current;
         scope.$on('$locationChangeSuccess', function() {
-            if(lastRoute.$$route.templateUrl === $route.current.$$route.templateUrl) {
+            if($route.current.$$route && lastRoute.$$route.templateUrl === $route.current.$$route.templateUrl) {
                 $route.current = lastRoute;
             }
         });
