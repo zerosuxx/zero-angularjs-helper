@@ -67,8 +67,19 @@ angular.module('zerosuxx.zeroNgHelper')
                     var data = response.data;
                     scope[scopeAlias ? scopeAlias : 'list'] = data;
                     scope.initPages(data.pages_count, queryParams.page === undefined);
+                    if(scope.onLoads.length > 0) {
+                        for(var i in scope.onLoads) {
+                            scope.onLoads[i](response);
+                        }
+                    }
                 });
             };
+            
+            scope.onLoad = function(callback) {
+                scope.onLoads.push(callback);
+            };
+            
+            scope.onLoads = [];
 
             scope.queryParams = {};
             scope.resetPager();
