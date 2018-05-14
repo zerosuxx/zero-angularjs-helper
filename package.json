@@ -1,6 +1,6 @@
 {
     "name": "zero-angularjs-helper",
-    "version": "1.0.45",
+    "version": "1.0.50",
     "description": "AngularJS Helper Module",
     "main": "dist/zero-angularjs-helper.js",
     "repository": {

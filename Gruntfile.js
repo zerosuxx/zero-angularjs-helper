@@ -11,6 +11,7 @@ var files = [
     config.src_dir + '/Directive/SubmitHandlerDirective.js',
     config.src_dir + '/Factory/DisableReloadCurrentTemplate.js',
     config.src_dir + '/Factory/HttpApiInterceptor.js',
+    config.src_dir + '/Filter/SceTrustAs.js',
     config.src_dir + '/Provider/TemplateUrlProvider.js',
     config.src_dir + '/Provider/ZeroRouteProvider.js',
     config.src_dir + '/Provider/ZeroConfigProvider.js',
