@@ -9,6 +9,7 @@ var files = [
     config.src_dir + '/Directive/IncludeDirective.js',
     config.src_dir + '/Directive/ListDirective.js',
     config.src_dir + '/Directive/SubmitHandlerDirective.js',
+    config.src_dir + '/Directive/ClickHandlerDirective.js',
     config.src_dir + '/Factory/DisableReloadCurrentTemplate.js',
     config.src_dir + '/Factory/HttpApiInterceptor.js',
     config.src_dir + '/Filter/SceTrustAs.js',
