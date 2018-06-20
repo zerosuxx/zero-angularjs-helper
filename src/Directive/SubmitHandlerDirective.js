@@ -24,6 +24,9 @@ angular.module('zerosuxx.zeroNgHelper')
                 var args = arguments;
                 HttpClient.request(method, url, element[0]).then(function(response) {
                     for(var i = 1; i < args.length; i++) {
+                        if(typeof args[i] !== 'function') {
+                            continue;
+                        }
                         args[i](response, scope, element[0], attrs);
                     }
                     if(response.data.status && response.data.message) {
