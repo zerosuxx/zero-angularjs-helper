@@ -7,9 +7,9 @@ angular.module('zerosuxx.zeroNgHelper')
                 if(config.unauthorized.savePreviousLocationKey) {
                     StorageService.set(config.unauthorized.savePreviousLocationKey, $location.path());
                 }
-                $location.path(config.locations.unauthorized);
+                $location.path(config.locations.unauthorized).search({});
             } else if(response.status === 404) {
-                $location.path(config.locations.notFound);
+                $location.path(config.locations.notFound).search({});
             }
             return $q.reject(response);
         }
