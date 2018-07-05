@@ -38,4 +38,8 @@ angular.module('zerosuxx.zeroNgHelper')
     this.getElement = function(templateName, ext) {
         return this.get(['_elements', templateName, ext]);
     };
+	
+	this.getTemplate = function(dir, templateName, ext) {
+        return this.get([dir, templateName, ext]);
+    };
 });
