@@ -13,7 +13,7 @@ angular.module('zerosuxx.zeroNgHelper')
                         callback(enable, scope, element[0], attrs);
                     }
                     if(response.data.status === 'success') { 
-                        scope.$eval(key + ' = ' + enable)
+                        scope.$eval(key + ' = ' + enable);
                     }
                 });
             };
