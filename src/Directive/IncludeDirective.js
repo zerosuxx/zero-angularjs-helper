@@ -13,7 +13,7 @@ angular.module('zerosuxx.zeroNgHelper')
             if(type === 'element') {
                 scope[generateId(type, src)] = $templateUrl.getElement(src);
             } else {
-                scope[generateId(type, src)] = src;
+                scope[generateId(type, src)] = $templateUrl.getTemplate(type, src);
             }
         },
         template: function(element, attrs) {
