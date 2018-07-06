@@ -8,18 +8,18 @@ angular.module('zerosuxx.zeroNgHelper')
             var key = attrs.key;
             scope.ajaxHandle = function(url, callback) {
                 HttpClient.request(method, url, params).then(function(response) {
-                    var enable = !scope[key];
+                    var enable = !scope.$eval(key);
                     if(callback) {
                         callback(enable, scope, element[0], attrs);
                     }
                     if(response.data.status === 'success') { 
-                        scope[key] = enable;
+                        scope.$eval(key + ' = ' + enable)
                     }
                 });
             };
             
             scope.handle = function(callback) {
-                var enable = !scope[key];
+                var enable = !scope.$eval(key);
                 callback(enable, scope, element[0], attrs);
                 return true;
             };

@@ -1,4 +1,5 @@
 /src/
+/node_modules/
 .travis.yml
 test.html
 Gruntfile.js
