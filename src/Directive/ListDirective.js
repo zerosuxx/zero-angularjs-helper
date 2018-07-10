@@ -14,7 +14,13 @@ angular.module('zerosuxx.zeroNgHelper')
             var url = attrs.list;
             var scopeAlias = attrs.scopeAlias;
             var init = attrs.init;
-            var maxPage = attrs.maxPage || 5;  
+            var maxPage = attrs.maxPage || 2;  
+            var scrollTopOnPaginate = attrs.scrollTo || 0;  
+
+            scope.onLoads = [];
+
+            scope.queryParams = {};
+            scope.resetPager();
 
             scope.paginate = function(page) {
                 if(scope.currentPage === page || page < 1 || page > scope.lastPage) {
@@ -78,14 +84,15 @@ angular.module('zerosuxx.zeroNgHelper')
             scope.onLoad = function(callback) {
                 scope.onLoads.push(callback);
             };
-            
-            scope.onLoads = [];
-
-            scope.queryParams = {};
-            scope.resetPager();
 
             if(init === undefined || init !== '0') {
                 scope.load();
+            }
+            
+            if(scrollTopOnPaginate) {
+                scope.onLoad(function() {
+                     document.body.scrollTop = document.documentElement.scrollTop = 0;
+                });
             }
         }
     };
