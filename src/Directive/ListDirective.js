@@ -26,7 +26,7 @@ angular.module('zerosuxx.zeroNgHelper')
             scope.onLoads = [];
 
             scope.queryParams = {};
-            scope.resetPager(scope);
+            resetPager(scope);
 
             scope.paginate = function(page) {
                 if(scope.currentPage === page || page < 1 || page > scope.lastPage) {
@@ -50,7 +50,7 @@ angular.module('zerosuxx.zeroNgHelper')
                 scope.lastPage = parseInt(pagesCount);
                 scope.slicePages(scope.currentPage, maxPage);
                 if(reset) {
-                    scope.resetPager(scope);
+                    resetPager(scope);
                 }
             };
 
