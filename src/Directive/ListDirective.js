@@ -7,6 +7,12 @@ angular.module('zerosuxx.zeroNgHelper')
         }
         return pages;
     };
+    
+    var resetPager = function(scope) {
+        scope.prevPage = 1;
+        scope.currentPage = 1;
+        scope.nextPage = scope.currentPage+1;
+    };
 
     return {
         restrict: 'A',
@@ -20,7 +26,7 @@ angular.module('zerosuxx.zeroNgHelper')
             scope.onLoads = [];
 
             scope.queryParams = {};
-            scope.resetPager();
+            scope.resetPager(scope);
 
             scope.paginate = function(page) {
                 if(scope.currentPage === page || page < 1 || page > scope.lastPage) {
@@ -44,7 +50,7 @@ angular.module('zerosuxx.zeroNgHelper')
                 scope.lastPage = parseInt(pagesCount);
                 scope.slicePages(scope.currentPage, maxPage);
                 if(reset) {
-                    scope.resetPager();
+                    scope.resetPager(scope);
                 }
             };
 
@@ -58,11 +64,7 @@ angular.module('zerosuxx.zeroNgHelper')
                 scope.pages = scope.allPages.slice(minPage, currentPage+maxPage);
             };
 
-            scope.resetPager = function() {
-                scope.prevPage = 1;
-                scope.currentPage = 1;
-                scope.nextPage = scope.currentPage+1;
-            };
+            scope.resetPager = resetPager;
 
             scope.load = function(queryParams) {
                 if(!queryParams) {
